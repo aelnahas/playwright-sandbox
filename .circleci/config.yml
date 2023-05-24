@@ -9,7 +9,9 @@ jobs:
         - run: npm i
         - run: npx playwright install chrome
         - run:
-            command: npx playwright test --config=./playwright.config.js
+            command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --config=./playwright.config.js --reporter=junit,line
+        - store_test_results:
+            path: results.xml
 
 workflows:
     main-wofkflow:
