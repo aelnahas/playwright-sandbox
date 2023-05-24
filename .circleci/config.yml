@@ -9,7 +9,7 @@ jobs:
         - run: npm i
         - run: npx playwright install chrome
         - run:
-            command: circleci tests glob "tests/**/*.js" | circleci tests run --command="PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml xargs npx playwright test --config=./playwright.config.js --reporter=junit,line" --verbose
+            command: circleci tests glob "tests/**/*.js" | circleci tests run --command="PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml xargs npx playwright test --config=./playwright.config.js --reporter=junit,line --project=chrome" --verbose
         - store_test_results:
             path: results.xml
 
